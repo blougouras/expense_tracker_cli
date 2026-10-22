@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "expense-tracker"
+version = "0.1.0"
+description = "Tracker de Despesas Mensais e Anuais em CLI."
+requires-python = ">=3.14"
+dependencies = []
+readme = "README.md"
+authors = [
+  {name = "Luiz Henrique Blougouras Archeleigar", email = "luizblougouras5@gmail.com"}
+]
+
+[project.urls]
+GitHub = "https://github.com/blougouras"
+Repository = "https://github.com/blougouras/expense_tracker_cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
