@@ -14,6 +14,22 @@ __pycache__/
 *.pyo
 *.pyd
 
+# Builds e pacotes gerados
+build/
+dist/
+*.egg-info/
+
+# Testes, cobertura e ferramentas de qualidade
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
 # Variáveis de ambiente
 .env
 .env.*
