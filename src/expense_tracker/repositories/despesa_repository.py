@@ -2,11 +2,11 @@ import json
 from decimal import Decimal
 from datetime import date
 from pathlib import Path
-from models.despesa import Despesa
+from expense_tracker.models.despesa import Despesa
 
 class DespesaRepository:
-    def __init__(self, caminho="src/expanse_tracker/data/despesas.json"):
-        self.caminho = Path(caminho)
+    def __init__(self, caminho: Path):
+        self.caminho = caminho
 
     def _serializar(self, despesa): # Método interno da classe
         dados_despesa = {
@@ -39,5 +39,6 @@ class DespesaRepository:
 
     def salvar_despesas(self, despesas):
         despesas_json = [self._serializar(despesa) for despesa in despesas]
+        self.caminho.parent.mkdir(parents=True, exist_ok=True)
         with open(self.caminho, "w", encoding="utf-8") as arquivo_json:
             json.dump(despesas_json, arquivo_json, indent=4, ensure_ascii=False)

@@ -1,12 +1,12 @@
-from models.despesa import Despesa
-from repositories.despesa_repository import DespesaRepository
-from exceptions.exceptions import DespesaNaoEncontradaError
 from decimal import Decimal
 from datetime import date
+from expense_tracker.models.despesa import Despesa
+from expense_tracker.repositories.despesa_repository import DespesaRepository
+from expense_tracker.exceptions.exceptions import DespesaNaoEncontradaError
 
 class DespesaService:
-    def __init__(self, repositorio=None):
-        self.repositorio = DespesaRepository() if repositorio is None else repositorio
+    def __init__(self, repositorio: DespesaRepository):
+        self.repositorio = repositorio
 
     def _validar_dados(self, descricao, valor, data, categoria):
         if not descricao or not isinstance(descricao, str) or not descricao.strip():
